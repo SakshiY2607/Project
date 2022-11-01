@@ -1,2 +1,4 @@
-    #cv2.putText(frame, "A", (w - 70, 30), font, 1, red, 2, cv2.LINE_AA)
-    
+font = cv2.FONT_HERSHEY_SIMPLEX
+red = (0, 0, 255)
+green = (0, 255, 0)
+white = (255, 255, 255)
