@@ -1,0 +1,81 @@
+{% extends 'layout/base.html' %}
+
+{% block body %}
+<!-- create a side bar -->
+<div class="container-fluid vh-100">
+  <div class="row">
+    <div class="col-md-2 mt-4">
+      {% include "partials/dashboard_menu.html" %}
+    </div>
+    <div class="col-md-10 mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+          <h1 class="display1">Quiz Questions</h1>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Question</th>
+                <th scope="col">Option A</th>
+                <th scope="col">Option B</th>
+                <th scope="col">Option C</th>
+                <th scope="col">Option D</th>
+                <th scope="col">Answer</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for question in questions %}
+              <tr>
+                <td>{{ question.question }}</td>
+                <td>{{ question.option_A }}</td>
+                <td>{{ question.option_B }}</td>
+                <td>{{ question.option_C }}</td>
+                <td>{{ question.option_D }}</td>
+                <td>{{ question.answer }}</td>
+                <td>
+                  <a href="/quiz/delete/{{ question.id }}" class="btn btn-danger">Delete</a>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
+{% block css %}
+<style>
+  h1 {  
+    font-family: sans-serif;  
+    display: block;  
+    font-size: 1rem;  
+    font-weight: bold;  
+    text-align: center;  
+    letter-spacing: 3px;  
+    color: hotpink;  
+    text-transform: uppercase;  
+    padding-top: 20px;  
+  }  
+  a {  
+    text-decoration: none;  
+    color: #fff;  
+  }  
+  a:hover {  
+    text-decoration: none;  
+    color: #fff;  
+  }  
+  
+</style> 
+{% endblock %}
+
+{% block js %}
+<script>
+  
+</script>
+{% endblock %}

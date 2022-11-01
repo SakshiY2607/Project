@@ -1,0 +1,46 @@
+{% extends 'layout/base.html' %}
+
+{% block body %}
+<!-- create a side bar -->
+<div class="container-fluid vh-100">
+    <div class="row">
+        <div class="col-md-2 mt-4">
+            {% include "partials/dashboard_menu.html" %}
+        </div>
+        <div class="col-md-10 mt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block css %}
+<style>
+    .form-row {
+        display: flex;
+        height: 90vh;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        color: rgb(255, 147, 69);
+    }
+
+    main {
+        background-color: #efefef;
+    }
+</style>
+{% endblock %}

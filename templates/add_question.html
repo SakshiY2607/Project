@@ -1,0 +1,115 @@
+{% extends 'layout/base.html' %}
+
+{% block body %}
+<!-- create a side bar -->
+<div class="container-fluid vh-100">
+  <div class="row">
+    <div class="col-md-2 mt-4">
+      {% include "partials/dashboard_menu.html" %}
+    </div>
+    <div class="col-md-10 mt-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <h1> Add new quiz question</h1>
+            {% if error_list %}
+            <div class="alert alert-danger" role="alert">
+              <ul>
+                {% for error in error_list %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            <form method="POST">
+              <div class="mb-3">
+                <label for="question" class="form-label">Question</label>
+                <input type="text" class="form-control" id="question" name="question" placeholder="Enter your question">
+              </div>
+              
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="option_a" class="form-label">Option A</label>
+                    <input type="text" class="form-control" id="option_a" name="option_A" placeholder="Enter option A" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="option_a" class="form-label">Option B</label>
+                    <input type="text" class="form-control" id="option_a" name="option_B" placeholder="Enter option B" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="option_a" class="form-label">Option A</label>
+                    <input type="text" class="form-control" id="option_a" name="option_C" placeholder="Enter option A" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="option_a" class="form-label">Option B</label>
+                    <input type="text" class="form-control" id="option_a" name="option_D" placeholder="Enter option B" required>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="answer" class="form-label">Answer</label>
+                <input type="text" class="form-control" id="answer" name="answer" placeholder="Enter the correct answer" required>
+              </div>
+              
+              <div class="mb-3">
+                <select class="form-select" aria-label="Default select example" name="category">
+                  <option selected disabled>Select a category</option>
+                  <option value="1">Python</option>
+                  <option value="2">Java</option>
+                  <option value="3">JavaScript</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
+{% block css %}
+<style>
+  h1 {  
+    font-family: sans-serif;  
+    display: block;  
+    font-size: 1rem;  
+    font-weight: bold;  
+    text-align: center;  
+    letter-spacing: 3px;  
+    color: hotpink;  
+    text-transform: uppercase;  
+    padding-top: 20px;  
+  }  
+  a {  
+    text-decoration: none;  
+    color: #fff;  
+  }  
+  a:hover {  
+    text-decoration: none;  
+    color: #fff;  
+  }  
+  
+</style> 
+{% endblock %}
+
+{% block js %}
+<script>
+  
+</script>
+{% endblock %}
