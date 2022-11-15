@@ -43,6 +43,15 @@ class Quiz(db.Model):
     def __str__(self):
         return f'{self.question}'
 
+class Score(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    score = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    created_on = db.Column(db.DateTime, default=datetime.now)
+
+    def __str__(self):
+        return f'{self.score} of {self.user_id}'
+
 def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/app.sqlite'
