@@ -12,6 +12,8 @@ red = (0, 0, 255)
 green = (0, 255, 0)
 blue= (255, 0, 0)
 white=(255, 255, 255)
+screen_height = 480*2
+screen_width = 640*2
 # For webcam input:
 cap = cv2.VideoCapture(0)
 with mp_hands.Hands(
@@ -26,6 +28,7 @@ with mp_hands.Hands(
             # If loading a video, use 'break' instead of 'continue'.
             continue
         h, w, _ = image.shape
+        image = cv2.resize(image, (screen_width, screen_height))
         image = cv2.flip(image, 1)
         # To improve performance, optionally mark the image as not writeable to
         # pass by reference.
