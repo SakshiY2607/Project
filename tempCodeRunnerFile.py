@@ -1,1 +1,1 @@
-/quiz/delete/<int:id>
+print(up_ques)
