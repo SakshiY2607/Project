@@ -73,17 +73,22 @@ def add_breaks(question):
     return up_ques + '\n' + temp
 
 def display_question(image, question=1):
+   # global sc
     h,w,_ = image.shape
     session = open_db()
+    #score = session.query(Score).filter(Score.user_id == 1 ).get(score)
     quiz = session.query(Quiz).get(question)
+    
     session.close()
     # print(quiz)
+    #score1=str(score.score)
     q = add_breaks(quiz.question)
     a = quiz.option_A
     b = quiz.option_B
     c = quiz.option_C
     d = quiz.option_D
     cat = quiz.category
+    #sc=score.score
     # print(q,a,b,c,d,cat,quiz.answer)
     cv2.rectangle(image, (0,h-150),(w,h),(0,0,0),-1)
     # cv2.putText(image, q, (0, h -100), font, 1, white, 2, cv2.LINE_AA)
