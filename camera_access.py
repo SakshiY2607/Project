@@ -15,9 +15,10 @@ score_start = True
     
 font = cv2.FONT_HERSHEY_SIMPLEX
 red = (0, 0, 255)
-green = (0, 255, 0)
-blue= (255, 0, 0)
+green = (255,127,80)
+blue= (0,178,238)
 white=(255, 255, 255)
+
 screen_height = 480
 screen_width = 640
 
@@ -94,18 +95,18 @@ def display_question(image, question=1):
     # cv2.putText(image, q, (0, h -100), font, 1, white, 2, cv2.LINE_AA)
     for i, line in enumerate(q.split('\n')):
         cv2.putText(image, line, (0, h - 100 + i * 30), font, 1, white, 2, cv2.LINE_AA)
-    cv2.rectangle(image, (20, 90), (200,170), green, -1)
-    cv2.putText(image, cat, (50, 130), font, .7, blue, 2, cv2.LINE_AA)
+    cv2.rectangle(image, (20,20 ), (200,100), green, -1)
+    cv2.putText(image, cat, (30, 70), font, .7, (0,0,0), 2, cv2.LINE_AA)
     cv2.rectangle(image, (230, 20), (410,100), red, -1)
-    cv2.putText(image, a, (w - 400, 50), font, .7, green, 2, cv2.LINE_AA)
+    cv2.putText(image, a, (w - 400, 50), font, .7, (0,0,0), 2, cv2.LINE_AA)
     cv2.rectangle(image, (440, 20), (620,100), red, -1)
-    cv2.putText(image, b, (w - 190, 50), font, .7, green, 2, cv2.LINE_AA)
-    cv2.rectangle(image, (20, 200), (200,240), blue, -1)
-    cv2.putText(image, "score", (w - 600, 225), font, .7, red, 2, cv2.LINE_AA)
+    cv2.putText(image, b, (w - 190, 50), font, .7, (0,0,0), 2, cv2.LINE_AA)
+    cv2.rectangle(image, (20, 130), (200,170), green, -1)
+    cv2.putText(image, "Score", (30, 155), font, .7,(0,0,0), 2, cv2.LINE_AA)
     cv2.rectangle(image, (230,130), (410,210), red, -1)
-    cv2.putText(image, c, (w -400, 160), font, .7, green, 2, cv2.LINE_AA)
+    cv2.putText(image, c, (w -400, 160), font, .7, (0,0,0), 2, cv2.LINE_AA)
     cv2.rectangle(image, (440, 130), (620,210), red, -1)
-    cv2.putText(image, d, (w - 190, 160), font, .7, green, 2, cv2.LINE_AA)
+    cv2.putText(image, d, (w - 190, 160), font, .7, (0,0,0), 2, cv2.LINE_AA)
     return image
 
 def distanceCalculate(p1, p2):
