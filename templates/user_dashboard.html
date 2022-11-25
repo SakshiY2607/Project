@@ -1,58 +1,248 @@
 {% extends 'layout/base.html' %}
 
 {% block body %}
-<!-- shortcut to generate a vaible location => .container>.row>.col-md-4 -->
-<div class="container">
-    <div class="row form-row">
-        <div class="col-lg-4 ">
-            <h1 class="my-4 display-4 text-center">Sign In as User</h1>
-            <form class="shadow-lg p-3 rounded bg-light" method="post">
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="ex: Ravi@gmail.com" aria-describedby="emailHelp">
-                    {% if 'email' in errors %}
-                    <div id="emailHelp" class="form-text text-danger">{{errors['email']}}</div>
-                    {% endif %}
 
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password"
-                        placeholder="Your Password" aria-describedby="pwdHelp">
-                    {% if 'password' in errors %}
-                    <div id="pwdHelp" class="form-text text-danger">{{errors['password']}}</div>
-                    {% endif %}
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-    </div>
+
+
+
+
+<div class="form-body">
+    <h1><centre>Welcome to the AR Quiz Portal</centre></h1>
+  <div class="row">
+    
+      <div class="form-holder">
+          <div class="form-content">
+              <div class="form-items">
+                
+                  <h3>Enter your details</h3>
+                  
+                  <form class="requires-validation" novalidate>
+
+                      <div class="col-md-12">
+                         <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                         <div class="valid-feedback">Username field is valid!</div>
+                         <div class="invalid-feedback">Username field cannot be blank!</div>
+                      </div>
+
+                      <div class="col-md-12">
+                          <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
+                           <div class="valid-feedback">Email field is valid!</div>
+                           <div class="invalid-feedback">Email field cannot be blank!</div>
+                      </div>
+
+                     <div class="col-md-12">
+                          <select class="form-select mt-3" required>
+                                <option selected disabled value="">Category</option>
+                                <option value="jweb">Python</option>
+                                <option value="sweb">Java</option>
+                                <option value="pmanager">Aptitude </option>
+                         </select>
+                          <div class="valid-feedback">You selected a category!</div>
+                          <div class="invalid-feedback">Please select a category!</div>
+                     </div>
+
+
+                     <div class="col-md-12">
+                      <select class="form-select mt-3" required>
+                            <option selected disabled value="">College</option>
+                            <option value="jweb">BBDITM</option>
+                            <option value="sweb">BBDNIT</option>
+                            <option value="pmanager">BBDEC </option>
+                            <option value="pmanager">BBDU </option>
+                     </select>
+
+
+                     <div class="col-md-12 mt-3">
+                      <label class="mb-3 mr-1" for="gender">Gender: </label>
+
+                      <input type="radio" class="btn-check" name="gender" id="male" autocomplete="off" required>
+                      <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
+
+                      <input type="radio" class="btn-check" name="gender" id="female" autocomplete="off" required>
+                      <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
+
+                      <input type="radio" class="btn-check" name="gender" id="secret" autocomplete="off" required>
+                      <label class="btn btn-sm btn-outline-secondary" for="secret">Secret</label>
+                         <div class="valid-feedback mv-up">You selected a gender!</div>
+                          <div class="invalid-feedback mv-up">Please select a gender!</div>
+                      </div>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label">I confirm that all data are correct</label>
+                   <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                  </div>
+            
+
+                      <div class="form-button mt-3">
+                          <button id="submit" type="submit" class="btn btn-primary">Start</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
 
-
-
-
-
+<h2 class = "divs"><center>THANK YOU </center> </h2>
 
 
 
 {% endblock %}
 
 {% block css %}
+
 <style>
-    .form-row {
-        display: flex;
-        height: 90vh;
-        justify-content: center;
-        align-items: center;
-    }
+.rnt{
+    padding: 25px;
+}
 
-    h1 {
-        color: rgb(255, 147, 69);
-    }
+body{
+    
+    
+    background-color: rgb(234, 239, 243);
+    background-image:url('https://images.unsplash.com/photo-1513569771920-c9e1d31714af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+ }
+ 
+ .form-items{
+  background-color: #202e31;
+ }
+ .form-holder {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+}
+.form-body{
+    text-align: center;
+    padding: 25px;
+}
+.divs{
+    color :rgb(252, 249, 249);
+}
 
-    main {
-        background-color: #efefef;
-    }
-</style>
+.form-holder .form-content {
+    position: relative;
+    text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    
+}
+
+.form-content .form-items {
+    border: 3px solid rgb(241, 231, 231);
+    padding: 50px;
+    display: inline-block;
+    width: 100%;
+    min-width: 540px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: left;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.form-content h3 {
+    color: rgb(243, 237, 237);
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    
+}
+
+.form-content h3.form-title {
+    margin-bottom: 10px;
+}
+
+.form-content p {
+    color: rgb(247, 233, 233);
+    text-align: left;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+
+.form-content label, .was-validated .form-check-input:invalid~.form-check-label, .was-validated .form-check-input:valid~.form-check-label{
+    color: rgb(243, 237, 237);
+}
+
+.form-content input[type=text], .form-content input[type=password], .form-content input[type=email], .form-content select {
+    width: 100%;
+    padding: 9px 20px;
+    text-align: left;
+    border: 0;
+    outline: 0;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: 300;
+    color: #0f0505;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+.btn-primary{
+    background-color: #2d6ea7;
+    outline: none;
+    border: 0px;
+    box-shadow: none;  
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+    background-color: #495056;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none;
+    
+}
+.form-content textarea {
+    position: static !important;
+    width: 100%;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-align: left;
+    background-color: rgb(143, 9, 9);
+    border: 0;
+    font-size: 15px;
+    font-weight: 300;
+    color: #41df19;
+    outline: none;
+    resize: none;
+    height: 120px;
+    -webkit-transition: none;
+    transition: none;
+    margin-bottom: 14px;
+}
+
+.form-content textarea:hover, .form-content textarea:focus {
+    border: 0;
+    background-color: #dde0e7;
+    color: #8D8D8D;
+}
+
+.mv-up{
+    margin-top: -9px !important;
+    margin-bottom: 8px !important;
+}
+
+
+ </style>
 {% endblock %}
+
+
+
