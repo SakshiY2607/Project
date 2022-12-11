@@ -69,7 +69,7 @@ def open_db(path = 'database/app.sqlite'):
     session = Session()
     return session
 
-def add_breaks(question, limit=30):
+def add_breaks(question, limit):
     l = len(question)
     temp = question
     up_ques = ''
@@ -77,7 +77,7 @@ def add_breaks(question, limit=30):
         up_ques += temp[:limit].strip() + '\n'
         temp = temp[limit:]
     # print(up_ques + '\n' + temp)
-    return up_ques + '\n' + temp
+    return up_ques + '\n'  + temp
 
 
 def display_question(image, question=1, user_id=None):
@@ -91,11 +91,11 @@ def display_question(image, question=1, user_id=None):
         score = 0
     session.close()
 
-    q = add_breaks(quiz.question)
-    a = add_breaks(quiz.option_A, limit=15)
-    b = (quiz.option_B)
-    c = (quiz.option_C)
-    d = (quiz.option_D)
+    q = add_breaks(quiz.question,limit=30)
+    a = add_breaks(quiz.option_A, limit=10)
+    b = add_breaks(quiz.option_B,limit=10)
+    c = add_breaks(quiz.option_C,limit=10)
+    d = add_breaks(quiz.option_D,limit=10)
     cat = quiz.category
     # print(q,a,b,c,d,cat,quiz.answer)
     cv2.rectangle(image, (0,h-150),(w,h),(0,0,0),-1)

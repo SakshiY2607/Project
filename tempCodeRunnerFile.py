@@ -1,1 +1,1 @@
-print(up_ques)
+session['id']
