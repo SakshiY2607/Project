@@ -35,7 +35,7 @@
                 <ul class="navbar-nav mt-2 mt-lg-0 ">
                     {% if 'is_logged_in' in session %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/dashboard">{{session.username}}</a>
+                        <a class="nav-link" href="/user/dashboard">{{session.username}}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>

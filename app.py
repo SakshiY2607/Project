@@ -2,6 +2,8 @@ from unicodedata import category
 from flask import Flask, render_template, request, redirect, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import random
+from camera_access import start_ar_quiz
 
 db = SQLAlchemy()
 
@@ -12,6 +14,7 @@ to create the project database, open terminal
     from app import app, db
     with app.app_context():
         db.create_all()
+    with app.app_context(): db.create_all()
 - enter twice to confirm
 '''
 
@@ -50,7 +53,7 @@ class Score(db.Model):
     created_on = db.Column(db.DateTime, default=datetime.now)
 
     def __str__(self):
-        return f'{self.score} of {self.user_id}'
+        return f'{self.score}'
 
 def create_app():
     app = Flask(__name__)
@@ -213,10 +216,29 @@ def admin():
 @app.route('/user/dashboard', methods=['GET','POST'])    
 def user():
     if session.get('is_logged_in', True):
-        return render_template('user_dashboard.html')
+        score =  Score.query.filter_by(user_id=session['id']).first()
+        # get names of categories from quiz
+        categories = Quiz.query.with_entities(Quiz.category).distinct().all()
+        categories = [category[0] for category in categories]
+        return render_template('user_dashboard.html', score=score, categories=categories)
+
     else:
         flash('Login in admin to access this content','danger')
         return redirect('/')        
+
+@app.route('/quiz/start/<category>', methods=['GET','POST'])
+def start_quiz(category):
+    if session.get('is_logged_in', True):
+        questions = Quiz.query.filter_by(category=category).all()
+        # shuffle questions and get a list of question ids
+        random.shuffle(questions)
+        question_ids = [question.id for question in questions]
+        # launch camera access py and pass the data like userid and category and question
+        start_ar_quiz(session['id'], question_ids)
+        return redirect('/user/dashboard')
+    else:
+        flash('Login in admin to access this content','danger')
+        return redirect('/')
 
 @app.route('/logout')
 def logout():
