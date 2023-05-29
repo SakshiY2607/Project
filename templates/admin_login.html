@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row form-row">
         <div class="col-lg-4 ">
-            <h1 class="my-4 display-4 text-center">Sign In as Admin</h1>
+            <center><h1 class="my-4 text-primary">Sign In As Admin</h1></center>
             <form class="shadow-lg p-3 rounded bg-light" method="post">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
@@ -33,24 +33,33 @@
 
 
 {% endblock %}
-
 {% block css %}
 <style>
     .form-row {
         display: flex;
         height: 90vh;
-        justify-content: center ;
+        justify-content: center;
         align-items: center;
-    }
-
-    h1 {
-        color: rgb(255, 147, 69);
+        
+        
+        
     }
 
     main {
-        background-color: #efefef;
-        background-image: url('https://images.unsplash.com/photo-1497864149936-d3163f0c0f4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80');
+        background-image: url('https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80');
+        background-position: center;
         background-size: cover;
+        
     }
+    .col-lg-4{
+        background-color: rgb(212, 241, 241);
+        padding:5px;
+        margin-top: 5px ;
+        padding-top: 1px;
+        
+    }
+    
+    
+    
 </style>
 {% endblock %}

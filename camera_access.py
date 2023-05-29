@@ -184,7 +184,7 @@ def check_gesture_to_start(image, w, h, hand_landmarks):
 def display_welcome_screen(image):
     h, w, _ = image.shape
     cv2.putText(image, "Welcome to the Quiz", (w // 2 - 200, h // 2), font, font_size, (0,0,0), 2, cv2.LINE_AA)
-    cv2.putText(image, "Press the Index finger to start the quiz", (w // 2 - 300, h // 2 + 50), font, font_size, (0,0,0), 2, cv2.LINE_AA)
+    cv2.putText(image, "Keep your index and middle finger close to each other to start the quiz", (w // 2 - 300 , h // 2 + 50), font, font_size, (0,0,0), 2, cv2.LINE_AA)
     return image
 
 def display_end_screen(image, used_Id):
@@ -194,6 +194,7 @@ def display_end_screen(image, used_Id):
     h, w, _ = image.shape
     cv2.putText(image, "Quiz Ended", (w // 2 - 200, h // 2), font, font_size, (0,0,0), 2, cv2.LINE_AA)
     cv2.putText(image, f"Your Score is {score.score}", (w // 2 - 200, h // 2 + 50), font, font_size, (0,0,0), 2, cv2.LINE_AA)
+    cv2.putText(image, f"Press Esc to exit the quiz", (w // 2 - 300, h // 2 + 100), font, font_size, (0,0,0), 2, cv2.LINE_AA)
     return image
 
 
